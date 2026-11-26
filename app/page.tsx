@@ -1,3 +1,16 @@
+const meaning = [
+  { en: "AI", ko: "인공지능" },
+  { en: "Mathematics", ko: "수학" },
+  { en: "Engineering", ko: "공학" },
+  { en: "Navigator", ko: "문제 해결자" },
+];
+
+const teams = [
+  { title: "SW 분과", desc: "소프트웨어. 코딩과 AI로 아이디어를 구현해요." },
+  { title: "HW 분과", desc: "하드웨어. 아두이노와 센서로 직접 만들어요." },
+  { title: "NS 분과", desc: "자연과학. 수학과 과학으로 원리를 탐구해요." },
+];
+
 export default function Home() {
   return (
     <main>
@@ -5,46 +18,46 @@ export default function Home() {
         <a className="logo" href="#">A.M.E.N.</a>
         <nav>
           <a href="#about">소개</a>
-          <a href="#activities">활동</a>
         </nav>
       </header>
 
       <section className="hero">
         <p className="label">우리 동아리를 소개합니다</p>
         <h1>
-          대전대신고등학교,<br />
-          <span>최고의 수학/공학 동아리</span>
+          대신고 수학·공학 동아리,<br />
+          <span>A.M.E.N.</span>
         </h1>
-        <p className="description">동아리 한 줄 소개</p>
+        <p className="description">AI · Mathematics · Engineering · Navigator</p>
         <a className="button" href="#about">더 알아보기 ↓</a>
       </section>
 
       <section className="section" id="about">
         <p className="label">ABOUT US</p>
         <h2>우리는 이런 동아리예요.</h2>
-        <p>-대신 사이언스 챌린지 개최</p>
-      </section>
 
-      <section className="section" id="activities">
-        <p className="label">ACTIVITIES</p>
-        <h2>이런 활동을 해요.</h2>
-        <div className="cards">
-          <article>
-            <h3>활동 이름 1</h3>
-            <p>활동 설명</p>
-          </article>
-          <article>
-            <h3>활동 이름 2</h3>
-            <p>활동 설명</p>
-          </article>
-          <article>
-            <h3>활동 이름 3</h3>
-            <p>활동 설명</p>
-          </article>
+        <h3 className="sub-title">이름의 뜻</h3>
+        <div className="tags">
+          {meaning.map((m) => (
+            <span key={m.en}>
+              <b>{m.en}</b> {m.ko}
+            </span>
+          ))}
         </div>
+
+        <h3 className="sub-title">분과</h3>
+        <div className="cards">
+          {teams.map((t) => (
+            <article key={t.title}>
+              <h3>{t.title}</h3>
+              <p>{t.desc}</p>
+            </article>
+          ))}
+        </div>
+
+        <p className="teacher">지도교사 신환용 선생님</p>
       </section>
 
-      <footer>© A.M.E.N.</footer>
+      <footer>© A.M.E.N. · 대전대신고등학교</footer>
     </main>
   );
 }
