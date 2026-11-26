@@ -6,9 +6,9 @@ const meaning = [
 ];
 
 const teams = [
-  { title: "SW 분과", desc: "소프트웨어. 코딩과 AI로 아이디어를 구현해요." },
-  { title: "HW 분과", desc: "하드웨어. 아두이노와 센서로 직접 만들어요." },
-  { title: "NS 분과", desc: "자연과학. 수학과 과학으로 원리를 탐구해요." },
+  { title: "SW 분과", desc: "코딩과 AI로 아이디어를 구현해요." },
+  { title: "HW 분과", desc: "아두이노와 센서로 직접 만들어요." },
+  { title: "NS 분과", desc: "수학과 과학으로 원리를 탐구해요." },
 ];
 
 export default function Home() {
