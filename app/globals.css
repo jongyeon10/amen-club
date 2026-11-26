@@ -17,6 +17,7 @@ body {
   background: var(--bg);
   margin: 0;
   font-family: Arial, sans-serif;
+  word-break: keep-all;
 }
 
 .header { display: flex; justify-content: space-between; align-items: center; padding: 24px 6%; }
@@ -30,8 +31,9 @@ nav { display: flex; gap: 24px; }
 .label { color: var(--accent); font-weight: 700; }
 
 h1 {
-  font-size: clamp(48px, 9vw, 110px); font-weight: 700;
+  font-size: clamp(40px, 8vw, 96px); font-weight: 700;
   line-height: 1.1; letter-spacing: -0.05em; margin: 12px 0 24px;
+  word-break: keep-all;
 }
 h1 span { color: var(--accent); }
 
