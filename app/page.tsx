@@ -10,10 +10,37 @@ const meaning = [
   { en: "Navigator", ko: "문제 해결자" },
 ];
 
+// 분과 아이콘
+const svgProps = {
+  width: 26, height: 26, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor",
+  strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const,
+};
+const IconCode = () => (
+  <svg {...svgProps}>
+    <rect x="2" y="4" width="20" height="16" rx="2" />
+    <path d="m8 10-2 2 2 2M16 10l2 2-2 2M13 9l-2 6" />
+  </svg>
+);
+const IconChip = () => (
+  <svg {...svgProps}>
+    <rect x="6" y="6" width="12" height="12" rx="2" />
+    <rect x="9.5" y="9.5" width="5" height="5" rx="0.5" />
+    <path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" />
+  </svg>
+);
+const IconAtom = () => (
+  <svg {...svgProps}>
+    <circle cx="12" cy="12" r="1.5" />
+    <ellipse cx="12" cy="12" rx="10" ry="4" />
+    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+  </svg>
+);
+
 const teams = [
-  { icon: "</>", title: "SW 분과", full: "Software · 소프트웨어", desc: "코딩과 AI로 아이디어를 구현해요." },
-  { icon: "⚙", title: "HW 분과", full: "Hardware · 하드웨어", desc: "아두이노와 센서로 직접 만들어요." },
-  { icon: "∑", title: "NS 분과", full: "Natural Science · 자연과학", desc: "수학과 과학으로 원리를 탐구해요." },
+  { icon: <IconCode />, title: "SW 분과", full: "Software · 소프트웨어", desc: "코딩과 AI로 아이디어를 구현해요." },
+  { icon: <IconChip />, title: "HW 분과", full: "Hardware · 하드웨어", desc: "아두이노와 센서로 직접 만들어요." },
+  { icon: <IconAtom />, title: "NS 분과", full: "Natural Science · 자연과학", desc: "수학과 과학으로 원리를 탐구해요." },
 ];
 
 // 조직도 (직책만 표시해요)
@@ -50,8 +77,6 @@ const lookingFor = [
 /* ─────────────────────────────────────────────── */
 
 export default function Home() {
-  const marquee = [...meaning, ...meaning, ...meaning, ...meaning];
-
   return (
     <main>
       <header className="header">
@@ -82,16 +107,14 @@ export default function Home() {
         </a>
       </section>
 
-      <div className="marquee" aria-hidden="true">
-        <div className="marquee-track">
-          {marquee.map((m, i) => (
-            <span key={i} className="pill">
-              <b>{m.en[0]}</b>
-              {m.en}
-              <small>{m.ko}</small>
-            </span>
-          ))}
-        </div>
+      <div className="meaning">
+        {meaning.map((m) => (
+          <span key={m.en} className="pill">
+            <b>{m.en[0]}</b>
+            {m.en}
+            <small>{m.ko}</small>
+          </span>
+        ))}
       </div>
 
       <section className="section" id="about">
@@ -208,7 +231,7 @@ export default function Home() {
           </ul>
           <p className="recruit-quote">열정과 패기만 있다면 누구나 환영해요.</p>
           <p className="recruit-together">
-            Together with <span>A.M.E.N.</span>
+            Together with A.M.E.N.
           </p>
         </div>
       </section>

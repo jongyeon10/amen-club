@@ -28,7 +28,7 @@ body {
   background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px);
 }
 .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
-.logo span { color: var(--accent); }
+.logo span { color: var(--text); }
 .header nav { display: flex; gap: 32px; font-size: 15px; font-weight: 600; }
 .header nav a:hover { color: var(--accent); }
 
@@ -46,7 +46,7 @@ body {
   line-height: 1.15; letter-spacing: -0.03em;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
-.hero h1 span { color: var(--accent); }
+.hero h1 span { color: var(--text); }
 .hero p { margin-top: 20px; font-size: clamp(15px, 2vw, 20px); color: #e5e5ea; }
 .scroll {
   position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
@@ -54,10 +54,11 @@ body {
 }
 @keyframes bounce { 0%, 100% { translate: 0 0; } 50% { translate: 0 8px; } }
 
-/* ── 흘러가는 띠 ── */
-.marquee { overflow: hidden; padding: 20px 0; border-bottom: 1px solid var(--line); }
-.marquee-track { display: flex; gap: 14px; width: max-content; animation: flow 30s linear infinite; }
-@keyframes flow { to { transform: translateX(-50%); } }
+/* ── 이름 뜻 ── */
+.meaning {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
+  padding: 20px 6%; border-bottom: 1px solid var(--line);
+}
 .pill {
   display: flex; align-items: center; gap: 10px;
   padding: 10px 22px 10px 10px; border-radius: 999px;
@@ -72,7 +73,7 @@ body {
 /* ── 섹션 공통 ── */
 .section { max-width: 1100px; margin: 0 auto; padding: 120px 6% 40px; }
 .title { font-size: clamp(36px, 5vw, 56px); font-weight: 800; letter-spacing: -0.02em; }
-.title span { color: var(--accent); }
+.title span { color: var(--text); }
 .lead { margin-top: 20px; max-width: 720px; font-size: 18px; line-height: 1.8; color: var(--sub); }
 
 .video {
@@ -91,7 +92,7 @@ body {
 .card:hover { transform: translateY(-4px); border-color: var(--accent); }
 .card-icon {
   display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 20px;
-  border-radius: 14px; background: var(--accent); font-size: 20px; font-weight: 800;
+  border-radius: 14px; background: var(--accent); color: #fff;
 }
 .card h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
 .card p { color: var(--sub); line-height: 1.7; }
@@ -163,7 +164,6 @@ body {
 .recruit li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
 .recruit-quote { margin-top: 32px; font-size: 18px; font-weight: 700; }
 .recruit-together { margin-top: 8px; font-size: clamp(24px, 4vw, 34px); font-weight: 800; letter-spacing: -0.02em; }
-.recruit-together span { color: var(--accent); }
 
 /* ── 하단 ── */
 .footer {
@@ -180,6 +180,10 @@ body {
   .org-box { min-width: 0; padding: 12px 10px; font-size: 14px; }
   .org-main { font-size: 16px; }
   .org-teams { --gap: 8px; }
+  .meaning { gap: 8px; padding: 16px 4%; }
+  .pill { gap: 6px; padding: 6px 12px 6px 6px; font-size: 14px; }
+  .pill b { width: 24px; height: 24px; font-size: 12px; }
+  .pill small { font-size: 12px; }
   .header { padding: 0 5%; gap: 16px; }
   .header nav { gap: 14px; font-size: 13px; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
   .achieve-row { grid-template-columns: 56px 1fr; }
