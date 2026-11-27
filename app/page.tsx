@@ -81,7 +81,11 @@ export default function Home() {
     <main>
       <header className="header">
         <a className="logo" href="#">
-          A.M.E.N<span>.</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-cat.svg" alt="" />
+          <span className="logo-text">
+            A.M.E.N<span>.</span>
+          </span>
         </a>
         <nav>
           <a href="#about">About</a>
@@ -238,7 +242,8 @@ export default function Home() {
 
       <footer className="footer">
         <div>
-          <p className="footer-logo">A.M.E.N.</p>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="footer-logo" src="/logo-white.svg" alt="A.M.E.N." />
           <p>대전대신고등학교 수학·공학 동아리</p>
         </div>
         <div className="footer-right">
