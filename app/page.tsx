@@ -1,13 +1,16 @@
+import { MeaningPills, ScrollTop, TeamTabs } from "./interactive";
+
 /* ───────── 여기 내용만 고치면 사이트 글이 바뀌어요 ───────── */
 
 // 유튜브 영상 주소(youtu.be/ 뒤에 오는 부분)
 const YOUTUBE_ID = "tC4wArfEI2E";
 
+// 이름 뜻 — 버튼을 누르면 detail 문장이 나와요
 const meaning = [
-  { en: "AI", ko: "인공지능" },
-  { en: "Mathematics", ko: "수학" },
-  { en: "Engineering", ko: "공학" },
-  { en: "Navigator", ko: "문제 해결자" },
+  { en: "AI", ko: "인공지능", detail: "인공지능과 코딩으로 아이디어를 똑똑하게 구현해요." },
+  { en: "Mathematics", ko: "수학", detail: "모든 문제 해결의 바탕이 되는 수학적 사고를 길러요." },
+  { en: "Engineering", ko: "공학", detail: "생각을 실제로 작동하는 결과물로 만들어요." },
+  { en: "Navigator", ko: "문제 해결자", detail: "스스로 문제를 찾고 해결 방향을 이끌어요." },
 ];
 
 // 분과 아이콘
@@ -111,15 +114,7 @@ export default function Home() {
         </a>
       </section>
 
-      <div className="meaning">
-        {meaning.map((m) => (
-          <span key={m.en} className="pill">
-            <b>{m.en[0]}</b>
-            {m.en}
-            <small>{m.ko}</small>
-          </span>
-        ))}
-      </div>
+      <MeaningPills items={meaning} />
 
       <section className="section" id="about">
         <h2 className="title">
@@ -144,16 +139,7 @@ export default function Home() {
           Teams<span>.</span>
         </h2>
         <p className="lead">세 분과로 나뉘어 각자 관심 있는 분야를 깊게 파고들어요.</p>
-        <div className="cards">
-          {teams.map((t) => (
-            <article key={t.title} className="card">
-              <div className="card-icon">{t.icon}</div>
-              <h3>{t.title}</h3>
-              <p className="card-full">{t.full}</p>
-              <p>{t.desc}</p>
-            </article>
-          ))}
-        </div>
+        <TeamTabs teams={teams} />
       </section>
 
       <section className="section" id="org">
@@ -251,6 +237,8 @@ export default function Home() {
           <p>© A.M.E.N. All Rights Reserved.</p>
         </div>
       </footer>
+
+      <ScrollTop />
     </main>
   );
 }
